@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<style>
+
+a:link    {
+	color:#000;
+	background: #ffdead;
+	text-decoration: none;
+	}  /* unvisited link  */
+a:visited {color:#000;}  /* visited link    */
+a:hover   {color:#000;}  /* mouse over link */
+a:active  {color:#000;}
+
+h1 {
+  font-weight: lighter;
+  font-size: 20px;
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+.bottombreak {
+  padding: 1em;
+}
+
+p {
+  margin: 1em;
+  text-align: justify;
+}
+
+.container1 {
+  margin-left: 12%;
+  margin-right: 12%;
+  display: inline-block;
+}
+
+.container2 {
+  margin-left: 12%;
+  margin-right: 12%;
+  display: inline-block;
+}
+
+html, body {
+  font-family: "Baskerville"; 
+  font-size: 16px;
+  color: #444;
+  /*display: inline-block;*/
+  line-height: 1.35em;
+  text-align: center;
+}
+
+#container_right {
+  width: 50%;
+  display: block;
+  float: right;
+}
+
+#container_left {
+  width: 50%;
+  max-width: 50%;
+  display: block;
+  float: left;
+}
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	/*display: inline-block;*/
+	width: 90%;
+	height: 500;
+}
+
+.title {
+	font-size: 1.75em;
+	text-align: center;
+	padding-bottom: .25em;
+	padding-top: 2em;
+	font-weight: 500;
+}
+
+img {
+	width: 100%;
+}
+
+blockquote.twitter-tweet {
+	/*width: 100;*/
+  display: inline-block;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 12px;
+  /*font-weight: bold;*/
+  line-height: 16px;
+  border-color: #eee #ddd #bbb;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  margin: 10px 5px;
+  padding: 0 16px 16px 16px;
+  max-width: 468px;
+  /*text-align: center;*/
+}
+
+blockquote.twitter-tweet p {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  text-align: center;
+}
+ 
+blockquote.twitter-tweet a {
+  color: inherit;
+  font-weight: normal;
+  text-decoration: none;
+  outline: 0 none;
+}
+
+blockquote.twitter-tweet img {
+  width: 75%;
+  padding: 1em;
+}
+ 
+blockquote.twitter-tweet a:hover,
+blockquote.twitter-tweet a:focus {
+  text-decoration: underline;
+}
+
+</style>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="assets/style.css" />
+<!-- <link rel="stylesheet" href="static/protestmapping/assets/phoca-flags.css" /> -->
+<!-- <link rel="stylesheet" href="static/protestmapping/assets/colorbrewer.css" /> -->
+<!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- <script src="static/protestmapping/assets/d3pie.min.js"></script> -->
+<!-- <script src="static/protestmapping/assets/d3.tip.v0.6.3.js"></script> -->
+<!-- <script src="http://d3js.org/queue.v1.min.js"></script> -->
+<!-- <script src="http://d3js.org/topojson.v1.min.js"></script> -->
+<!-- <script src="static/protestmapping/assets/colorbrewer.js"></script> -->
+<!-- <script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script> -->
+
+<!-- <link rel="stylesheet" href="static/timepoty/style.css" /> -->
+<!-- <script src="static/timepoty/d3.v3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="static/timepoty/d3pie.min.js"></script>
+<script src="static/timepoty/d3.tip.v0.6.3.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script> -->
+
+</head>
+<body>
+	<div class="container1"><div class="container2">
+	<div class="title">Berkeley Protest Mapping</div>
+	<h1>(Work in Progress)</h1>
+	<hr><br>
+	<p>
+		This interactive project is currently a work in progress, started during my time at the <a href="http://www.dailycal.org/">Daily Californian</a> for <a href="http://projects.dailycal.org/overflow/">Overflow</a>, the data journalism side of the newspaper. The goal was two-fold: (1) to be able to map all the protests that happen near UC Berkeley and see if they follow similar paths, and (2) to assist Daily Cal reporters in their coverage. Look out for this project to be updated. 
+	</p>
+	<p>
+		This project was inspired by the following tweet, made during Black Lives Matter protests of December 2014.
+	</p>
+	<p><div class="tweet">
+		<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><img src="https://pbs.twimg.com/media/B4enimBCUAA2lqL.jpg"><br>San Pablo and 40th <a href="http://t.co/hTnDungOc6">pic.twitter.com/hTnDungOc6</a></p>&mdash; Sophie Ho (@sophanho) <a href="https://twitter.com/sophanho/status/542586502299934721">December 10, 2014</a></blockquote>
+	</p></div>
+	<p>
+		For the first goal I envisioned a layered heat map spread across the city, and to do this I needed a dataset with the coordinates of the path of the protest. Unfortunately, there wasn't a great way to get historical data, so I'd have to settle for future protests (which I'm sure will exist). I also wanted to aid reporters, so that the protest could be seen moving, instead of just the intersections they passed. So this is why I'm using Django, to get real-time tweets, and to have a database.
+	</p>
+	<p>
+		Below is a screenshot from the Heroku app (the live version is currently available <a href="http://radiant-eyrie-7114.herokuapp.com/">here</a>). The current points are all dummy tweets that I created while walking to test the app. 
+	</p>
+	<p>
+		The app works, in the sense that if you post a tweet, it will show up. It has yet to be tested in an actual protest though. I have not yet started on the layering of multiple protests, either. Right now the tweets are not bounded by location or user, but that can be set up when the protest occurs... Of course, this means that the app is not autonomous - it depends on me. 
+	</p><br>
+	</div>
+	<img src="protest_testing.png">
+	<div class="container2">
+	<p><br>
+		This interactive looks best on the screen I used to code it (Chrome + Yosemite + 13"). Please send all comments / questions / critiques / suggestions to jmahabal@berkeley.edu. You can find the github <a href="https://github.com/jmahabal/protest-mapping">here</a>. Thanks for reading!
+	</p>
+    <div class="bottombreak"></div>
+    </div></div>
+
+</body>
+</html>
